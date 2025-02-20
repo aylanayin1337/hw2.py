@@ -1,11 +1,13 @@
-day = int(input('Введите день рождения'))
-month = int(input('Введите месяц рождения'))
-if day > 31 and month <= 0:
-    print('Неверно введённое число')
-elif month > 12 and month <= 0:
+day = int(input('Введите день рождения: '))
+month = int(input('Введите месяц рождения: '))
+
+# Проверка на валидность месяца и дня
+if month < 1 or month > 12:
     print('Неверно введённый месяц')
-elif month == 2 and day >= 29:
-    print('В Феврале до 29 дней')
+elif day < 1 or (month == 2 and day > 29) or (month in [4, 6, 9, 11] and day > 30) or (month not in [2, 4, 6, 9, 11] and day > 31):
+    print('Неверно введённое число, в Апреле, Июне, Сентябре и Ноябре только 30 дней')
+elif month == 2 and day == 29:
+    print('В Феврале до 29 дней (в невисокосный год)')
 elif (day >= 21 and month == 3) or (day <= 20 and month == 4):
     print('Овен')
 elif (day >= 21 and month == 4) or (day <= 21 and month == 5):
@@ -29,6 +31,6 @@ elif (day >= 23 and month == 12) or (day <= 20 and month == 1):
 elif (day >= 21 and month == 1) or (day <= 19 and month == 2):
     print('Водолей')
 elif (day >= 20 and month == 2) or (day <= 20 and month == 3):
-    print('Водолей')
+    print('Рыбы')
 else:
     print('Неверно введённый формат, введите сначала число, затем месяц')
