@@ -1,7 +1,6 @@
 day = int(input('Введите день рождения: '))
 month = int(input('Введите месяц рождения: '))
 
-# Проверка на валидность месяца и дня
 if month < 1 or month > 12:
     print('Неверно введённый месяц')
 elif day < 1 or (month == 2 and day > 29) or (month in [4, 6, 9, 11] and day > 30) or (month not in [2, 4, 6, 9, 11] and day > 31):
